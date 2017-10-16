@@ -153,13 +153,13 @@ if __name__ == "__main__":
     nodes = {}
     edges = {}
 
-    # path = bfs('7f3dc077574c013d98b2de8f735058b4', 'f1f131f647621a4be7c71292e79613f9')
-    #
-    # for i in range(len(path)-1):
-    #     print(get_node(path[i])['location']['name'],"(",path[i],") :",get_node(path[i+1])['location']['name'],"(",path[i+1],") : ", getweight(path[i],path[i+1]))
+    path = bfs('7f3dc077574c013d98b2de8f735058b4', 'f1f131f647621a4be7c71292e79613f9')
 
-    empty_room = get_state('7f3dc077574c013d98b2de8f735058b4')
+    for i in range(len(path)-1):
+        print(get_node(path[i])['location']['name'],"(",path[i],") :",get_node(path[i+1])['location']['name'],"(",path[i+1],") : ", getweight(path[i],path[i+1]))
+
+    # empty_room = get_state('7f3dc077574c013d98b2de8f735058b4')
     # for neighbor in empty_room['neighbors']:
     #     print(neighbor)
-    print("empty_room neighbors: ", get_neighbors(empty_room['id']))
+    # print("empty_room neighbors: ", get_neighbors(empty_room['id']))
     # print(transition_state(empty_room['id'], empty_room['neighbors'][0]['id']))
