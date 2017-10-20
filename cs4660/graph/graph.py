@@ -208,11 +208,10 @@ class AdjacencyList(object):
         #     return True
         pass
 
-<<<<<<< HEAD
-=======
+
+
     def distance(self, node_1, node_2):
         pass
->>>>>>> course/master
 
 class AdjacencyMatrix(object):
     def __init__(self):
@@ -332,6 +331,9 @@ class AdjacencyMatrix(object):
     def distance(self, node_1, node_2):
         pass
 
+    def distance(self, node_1, node_2):
+        pass
+
     def __get_node_index(self, node):
         """helper method to find node index"""
         if node in self.nodes:
@@ -434,9 +436,4 @@ class ObjectOriented(object):
         return True
         pass
 
-<<<<<<< HEAD
 
-=======
-    def distance(self, node_1, node_2):
-        pass
->>>>>>> course/master
