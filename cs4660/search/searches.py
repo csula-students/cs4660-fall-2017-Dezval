@@ -133,7 +133,44 @@ def a_star_search(graph, initial_node, dest_node):
     returns a list of actions going from the initial node to dest_node
     """
 
-    #
+    parents = {initial_node: None}
+    values = {initial_node: 0}
+    q = {initial_node: 0}
+    visited = []
+    heuristcs = []
+
+    while q:
+        current_node = list(q.keys())[0]
+        q.pop(current_node)
+        visited.append(current_node)
+
+        if current_node == dest_node:
+            break
+
+        for neighbor in graph.neighbors(current_node):
+            if neighbor not in visited:
+                newdist = graph.distance(current_node, neighbor) + values[current_node]
+                if newdist is None:
+                    newdist = 1
+                q[neighbor] = newdist
+                if neighbor not in values or newdist < values[neighbor]:
+                    parents[neighbor] = current_node
+                    values[neighbor] = newdist
+                    q[neighbor] = newdist
+        # q.pop(current_node)
+        sorted(q.values())
+
+    path = [current_node]
+    while initial_node not in path:
+        current_node = parents[current_node]
+        path.append(current_node)
+
+    path.reverse()
+    edgeList = []
+    for x in range(len(path) - 1):
+        edgeList.append(g.Edge(path[x], path[x + 1], graph.distance(path[x], path[x + 1])))
+
+    return edgeList
 
     pass
 
