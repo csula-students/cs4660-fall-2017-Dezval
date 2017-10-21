@@ -3,21 +3,26 @@ from operator import itemgetter
 
 
 def testOpenFile():
-    with open('../test/fixtures/graph-1.txt') as f:
-        line1 = f.readlines()
-        x = int(line1[0])
-        print(x+1)
-        line1.pop(0)
-        print(line1)
-        for i in line1:
-            i = i.split(":")
-            i[2] = i[2].split("\n")[0]
-            print(i[0])
-        # line1 = int(line1) + 4
-        # print(line1)
-        # # for line in f:
-        #     print(line)
+    with open('../test/fixtures/grid-1.txt') as f:
+        lines = f.readlines()
+        lines.pop(0)
+        str = []
+        grid = []
+        for i in range(len(lines) - 1):
+            lines[i] = lines[i][1:-2]
+            for j in range(0, len(lines)-1, 2):
+                tile = lines[i][j] + lines[i][j+1]
+                str.append(tile)
+            grid.append(str)
+            str = []
 
+        print("Going to print grid")
+        for i in range(len(grid)):
+            for j in range(len(grid[i])):
+                print(grid[i][j])
+
+        # for i in range(len(grid)):
+        #         print(grid[i])
 
 def main():
     print("MAIN!")

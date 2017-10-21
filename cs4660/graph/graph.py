@@ -177,15 +177,6 @@ class AdjacencyList(object):
             return False
         self.adjacency_list[edge.from_node].append(edge)
         return True
-        # if edge.from_node in self.adjacency_list:
-        #     if edge in \
-        #             self.adjacency_list[edge.from_node]:
-        #         return False
-        #     else:
-        #         self.adjacency_list[edge.from_node].append(edge)
-        #         return True
-        # return False
-        # pass
 
     def remove_edge(self, edge):
         """
@@ -201,17 +192,10 @@ class AdjacencyList(object):
                 return True
         return False
 
-        # if edge not in self.adjacency_list[edge.from_node] or edge.from_node not in self.adjacency_list:
-        #     return False
-        # else:
-        #     self.adjacency_list[edge.from_node].remove(edge)
-        #     return True
-        pass
-
-
-
     def distance(self, node_1, node_2):
-        pass
+        for edge in self.adjacency_list[node_1]:
+            if node_2 == edge.to_node:
+                return edge.weight
 
 class AdjacencyMatrix(object):
     def __init__(self):
@@ -329,9 +313,7 @@ class AdjacencyMatrix(object):
         pass
 
     def distance(self, node_1, node_2):
-        pass
-
-    def distance(self, node_1, node_2):
+        return self.adjacency_matrix[self.nodes.index(node_1)][self.nodes.index(node_2)]
         pass
 
     def __get_node_index(self, node):
@@ -435,5 +417,11 @@ class ObjectOriented(object):
         self.edges.remove(edge)
         return True
         pass
+
+    def distance(self, node_1, node_2):
+        for edge in self.edges:
+            if edge.from_node == node_1 and edge.to_node == node_2:
+                return edge.weight
+
 
 
